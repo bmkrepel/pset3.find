@@ -18,8 +18,7 @@ bool search(int value, int values[], int n)
 {
     // do binary search to see if value is in values[]
     int min = 0;
-    int max = n - 1;
-    // int midpoint = n / 2;
+    int max = n -1;
     binarySearch(value, values, min, max);
     
     // This may need to be taken out
@@ -59,7 +58,7 @@ void sort(int values[], int n)
  */
 bool binarySearch(int key, int array[], int min, int max)
 {
-    
+
     if (max < min)
     {
         return -1;
@@ -70,13 +69,15 @@ bool binarySearch(int key, int array[], int min, int max)
                 
         if (array[midpoint] < key)
         {
-            binarySearch(key, array[midpoint], midpoint + 1, max);
+            binarySearch(key, &array[midpoint], midpoint + 1, max);
         }
         else if (array[midpoint] > key)
         {
-            binarySearch(key, array[midpoint], min, midpoint - 1);
+            binarySearch(key, &array[midpoint], min, midpoint - 1);
         }
         else
             return midpoint;
     }
+    //may have to take this out
+    return -1;
 }
