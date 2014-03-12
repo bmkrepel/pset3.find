@@ -1,6 +1,6 @@
 /**
  * helpers.c
- * obladieasdf
+ * 
  * Computer Science 50
  * Problem Set 3
  *
