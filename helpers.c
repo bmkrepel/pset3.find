@@ -22,7 +22,7 @@ bool search(int value, int values[], int n)
     binarySearch(value, values, min, max);
     
     // This may need to be taken out
-    return 1;
+    return -1;
 }
 
 /**
