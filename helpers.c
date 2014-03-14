@@ -8,7 +8,7 @@
  */
        
 #include <cs50.h>
-
+#include <stdio.h>
 #include "helpers.h"
 
 /**
@@ -20,12 +20,11 @@ bool search(int value, int values[], int n)
     int min = 0;
     int max = n -1;
     
-    if (binarySearch(value, values, min, max))
+    if (binarySearch(value, values, min, max) > 0)
     {
         return 1;
     }
     else
-    // This may need to be taken out
         return 0;
 }
 
@@ -34,7 +33,7 @@ bool search(int value, int values[], int n)
  */
 void sort(int values[], int n)
 {
-    // TODO: implement an O(n^2) sorting algorithm
+    // selection sort
     for (int i = 0; i < n - 1; i++)
     {
         int min = i;
@@ -62,27 +61,32 @@ void sort(int values[], int n)
  */
 bool binarySearch(int key, int array[], int min, int max)
 {
-    int midpoint = (min + max) / 2;
-    
-    if (max < min)
+    // verify array has values left
+    if (min > max)
     {
-        return -1;
+        return 0;
     }
     else
     {
-        if (array[midpoint] < key)
+        // calculate midpoint
+        int midpoint = (max + min) / 2;
+        
+        // if midpoint value is less than key, search left
+        if (array[midpoint] > key)
         {
-            binarySearch(key, &array[midpoint], midpoint + 1, max);
+            binarySearch(key, array, min, midpoint - 1);
         }
-        else if (array[midpoint] > key)
+        // if midpoint value is greater than key, search right
+        else if (array[midpoint] < key)
         {
-            binarySearch(key, &array[midpoint], min, midpoint - 1);
+            binarySearch(key, array, midpoint + 1, max);
         }
+        // otherwise, value is key
         else
             return midpoint;
-        
-        return 0;
     }
-    //may have to take this out
-    //return 0;
+    
+    return 0; 
 }
+
+
