@@ -19,10 +19,14 @@ bool search(int value, int values[], int n)
     // do binary search to see if value is in values[]
     int min = 0;
     int max = n -1;
-    binarySearch(value, values, min, max);
     
+    if (binarySearch(value, values, min, max))
+    {
+        return 1;
+    }
+    else
     // This may need to be taken out
-    return -1;
+        return 0;
 }
 
 /**
@@ -58,15 +62,14 @@ void sort(int values[], int n)
  */
 bool binarySearch(int key, int array[], int min, int max)
 {
-
+    int midpoint = (min + max) / 2;
+    
     if (max < min)
     {
         return -1;
     }
     else
     {
-        int midpoint = (min + max) / 2;
-                
         if (array[midpoint] < key)
         {
             binarySearch(key, &array[midpoint], midpoint + 1, max);
@@ -77,7 +80,9 @@ bool binarySearch(int key, int array[], int min, int max)
         }
         else
             return midpoint;
+        
+        return 0;
     }
     //may have to take this out
-    return -1;
+    //return 0;
 }
