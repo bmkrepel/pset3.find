@@ -38,7 +38,6 @@ bool search(int value, int values[], int n)
         {
             max = midpoint -1;
         }
-        
     }
         return 0;
 }
@@ -59,11 +58,9 @@ void sort(int values[], int n)
             {
                 min = j;
             }
-           
         }
         if (min != i)
         {
-
             int tmp = values[min];
             values[min] = values[i];
             values[i] = tmp;
