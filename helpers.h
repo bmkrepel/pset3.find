@@ -18,8 +18,3 @@ bool search(int value, int values[], int n);
  * Sorts array of n values.
  */
 void sort(int values[], int n);
-
-/**
- * searches binarily
- */
-int binarySearch(int key, int array[], int min, int max);
