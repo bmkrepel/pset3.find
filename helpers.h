@@ -22,4 +22,4 @@ void sort(int values[], int n);
 /**
  * searches binarily
  */
-bool binarySearch(int key, int array[], int min, int max);
+int binarySearch(int key, int array[], int min, int max);

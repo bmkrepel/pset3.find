@@ -20,7 +20,7 @@ bool search(int value, int values[], int n)
     int min = 0;
     int max = n -1;
     
-    if (binarySearch(value, values, min, max) > 0)
+    if (binarySearch(value, values, min, max))
     {
         return 1;
     }
@@ -34,7 +34,7 @@ bool search(int value, int values[], int n)
 void sort(int values[], int n)
 {
     // selection sort
-    for (int i = 0; i < n - 1; i++)
+    for (int i = 0; i <= n - 1; i++)
     {
         int min = i;
         
@@ -44,14 +44,15 @@ void sort(int values[], int n)
             {
                 min = j;
             }
-            if (min != i)
-            {
-
-                int tmp = values[min];
-                values[min] = values[i];
-                values[i] = tmp;
-            } 
+           
         }
+        if (min != i)
+        {
+
+            int tmp = values[min];
+            values[min] = values[i];
+            values[i] = tmp;
+        } 
     }
     return;
 }
@@ -59,7 +60,7 @@ void sort(int values[], int n)
 /**
  * implements binary search
  */
-bool binarySearch(int key, int array[], int min, int max)
+int binarySearch(int key, int array[], int min, int max)
 {
     // verify array has values left
     if (min > max)
@@ -83,7 +84,7 @@ bool binarySearch(int key, int array[], int min, int max)
         }
         // otherwise, value is key
         else
-            return midpoint;
+            return 1;
     }
     
     return 0; 
